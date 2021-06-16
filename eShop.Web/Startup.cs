@@ -1,17 +1,17 @@
 using eShop.UseCases.PluginInterfaces.DataStore;
+using eShop.UseCases.PluginInterfaces.UI;
 using eShop.UseCases.SearchProductScreen;
 using eShop.UseCases.ViewProductScreen;
-using eShop.Web.Data;
+using eShop.UseCases.ViewProductScreen.Interfaces;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using eShop.UseCases.ShoppingCartScreen.Interfaces;
+using eShop.UseCases.ShoppingCartScreen;
+using eShop.UseCases.PluginInterfaces.StateStore;
+using eShop.StateStore.DI;
 
 namespace eShop.Web
 {
@@ -29,11 +29,14 @@ namespace eShop.Web
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
 
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IViewProductUseCase, ViewProductUseCase>();
             services.AddTransient<ISearchProductUseCase, SearchProductUseCase>();
+            services.AddTransient<IAddProductToCartUseCase, AddProductToCartUseCase>();
+            services.AddTransient<IShoppingCart, ShoppingCart.LocalStorage.ShoppingCart>();
+            services.AddTransient<IViewShoppingCartUseCase, ViewShoppingCartUseCase>();
+            services.AddTransient<IShoppingCartStateStore, ShoppingCartStateStore>(); 
         }
 
 

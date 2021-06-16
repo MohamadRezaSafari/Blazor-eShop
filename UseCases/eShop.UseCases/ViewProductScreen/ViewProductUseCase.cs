@@ -1,5 +1,6 @@
 ﻿using eShop.CoreBusiness.Models;
 using eShop.UseCases.PluginInterfaces.DataStore;
+using eShop.UseCases.ViewProductScreen.Interfaces;
 
 namespace eShop.UseCases.ViewProductScreen
 {
