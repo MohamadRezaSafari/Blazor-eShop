@@ -1,6 +1,5 @@
 ﻿using eShop.UseCases.PluginInterfaces.StateStore;
 using eShop.UseCases.PluginInterfaces.UI;
-using System;
 using System.Threading.Tasks;
 
 namespace eShop.StateStore.DI
@@ -25,6 +24,11 @@ namespace eShop.StateStore.DI
         }
 
         public void UpdateLineItemsCount()
+        {
+            base.BroadCastSatateChange();
+        }
+
+        public void UpdateProductQuantity()
         {
             base.BroadCastSatateChange();
         }

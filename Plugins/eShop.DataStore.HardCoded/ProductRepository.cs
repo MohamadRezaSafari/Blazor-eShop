@@ -1,8 +1,9 @@
 ﻿using eShop.CoreBusiness.Models;
+using eShop.UseCases.PluginInterfaces.DataStore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace eShop.UseCases.PluginInterfaces.DataStore
+namespace eShop.DataStore.HardCoded
 {
     public class ProductRepository : IProductRepository
     {

@@ -14,7 +14,7 @@ namespace eShop.CoreBusiness.Models
         }
 
         public int? OrderId { get; set; }
-        public DateTime? DatePlaceId { get; set; }
+        public DateTime? DatePlaced { get; set; }
         public DateTime? DateProcessing { get; set; }
         public DateTime? DateProcessed { get; set; }
         public string CustomerName { get; set; }

@@ -12,6 +12,8 @@ using eShop.UseCases.ShoppingCartScreen.Interfaces;
 using eShop.UseCases.ShoppingCartScreen;
 using eShop.UseCases.PluginInterfaces.StateStore;
 using eShop.StateStore.DI;
+using eShop.DataStore.HardCoded;
+using eShop.CoreBusiness.Services;
 
 namespace eShop.Web
 {
@@ -31,12 +33,19 @@ namespace eShop.Web
             services.AddServerSideBlazor();
 
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
+
+            services.AddScoped<IShoppingCart, ShoppingCart.LocalStorage.ShoppingCart>();
+            services.AddScoped<IShoppingCartStateStore, ShoppingCartStateStore>();
+
+            services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IViewProductUseCase, ViewProductUseCase>();
             services.AddTransient<ISearchProductUseCase, SearchProductUseCase>();
             services.AddTransient<IAddProductToCartUseCase, AddProductToCartUseCase>();
-            services.AddTransient<IShoppingCart, ShoppingCart.LocalStorage.ShoppingCart>();
             services.AddTransient<IViewShoppingCartUseCase, ViewShoppingCartUseCase>();
-            services.AddTransient<IShoppingCartStateStore, ShoppingCartStateStore>(); 
+            services.AddTransient<IDeleteProductUseCase, DeleteProductUseCase>();
+            services.AddTransient<IUpdateQuantityUseCase, UpdateQuantityUseCase>();
+            services.AddTransient<IPlaceOrderUseCase, PlaceOrderUseCase>();
         }
 
 
